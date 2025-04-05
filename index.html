@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="新宿Giversは新たに結成された3×3バスケットボールチームです。応援金募集中！">
+    <meta name="theme-color" content="#FF5A00">
+    <title>新宿Givers - 3×3バスケットボールチーム クラウドファンディング</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5A00;
+            --secondary: #002F87;
+            --accent: #FFD100;
+            --dark: #222222;
+            --light: #F8F8F8;
+            --gray: #EEEEEE;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .touch-device .cta-button:hover,
+        .touch-device .reward-button:hover,
+        .touch-device .submit-button:hover,
+        .touch-device .social-icon:hover,
+        .touch-device .header-cta:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ヘッダーセクション */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            z-index: 1001;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .header-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .header-cta:hover {
+            background-color: #ff7a32;
+            transform: translateY(-2px);
+        }
+        
+        /* モバイルメニュー */
+        .mobile-menu-icon {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-icon.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-menu-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-icon.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--dark);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav a:hover {
+            color: var(--primary);
+        }
+        
+        .header-cta-mobile {
+            display: inline-block;
+            background-color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-top: 15px;
+            color: white !important;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/FVばすけ.png') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .progress-bar {
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            height: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 30px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(255, 90, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #ff7a32;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 90, 0, 0.4);
+        }
+        
+        /* セクション共通 */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* プロジェクト概要 */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-video {
+            flex: 1;
+            min-width: 300px;
+            aspect-ratio: 16/9;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* チームメンバー */
+        .team {
+            background-color: var(--gray);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .member-img {
+            height: 300px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .member-info h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .member-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* 目指すもの */
+        .mission {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .mission .section-title h2 {
+            color: white;
+        }
+        
+        .mission .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .mission-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .mission-card:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        
+        .mission-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .mission-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .mission-card p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* 応援金の使途 */
+        .funds {
+            background-color: white;
+        }
+        
+        .funds-chart {
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        
+        .funds-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .fund-item {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .fund-item h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fund-amount {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .fund-item ul {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .fund-item li {
+            margin-bottom: 5px;
+        }
+        
+        /* リターン */
+        .rewards {
+            background-color: var(--gray);
+        }
+        
+        .rewards-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .tab {
+            padding: 10px 30px;
+            background-color: white;
+            color: var(--dark);
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab:first-child {
+            border-radius: 30px 0 0 30px;
+        }
+        
+        .tab:last-child {
+            border-radius: 0 30px 30px 0;
+        }
+        
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .reward-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .reward-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .reward-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        
+        .reward-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .reward-title {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        
+        .reward-content {
+            padding: 25px;
+        }
+        
+        .reward-content ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        .reward-content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .reward-content li::before {
+            content: "✓";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .reward-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .reward-button:hover {
+            background-color: var(--primary);
+        }
+        
+        /* スケジュール */
+        .schedule {
+            background-color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--gray);
+            position: relative;
+            border-radius: 10px;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        /* SNS */
+        .social {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .social .section-title h2 {
+            color: white;
+        }
+        
+        .social .section-title h2::after {
+            background-color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .hashtags {
+            font-size: 1.3rem;
+            margin-top: 30px;
+        }
+        
+        .hashtag {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 15px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 30px;
+        }
+        
+        /* FAQ */
+        .faq {
+            background-color: var(--gray);
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .accordion-content {
+            background-color: white;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content-inner {
+            padding: 0 0 20px;
+        }
+        
+        /* お問い合わせ */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-method {
+            margin-bottom: 30px;
+        }
+        
+        .contact-method h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-method p {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        .submit-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background-color: #ff7a32;
+        }
+        
+        /* フッター */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* レスポンシブ対応 */
+        /* スマートフォン（小） */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 80px 0 40px;
+                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/FVばすけ.png') center/cover no-repeat;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+            }
+            
+            .stat-item {
+                width: 50%;
+                margin-bottom: 15px;
+            }
+            
+            .stat-item h3 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .team-grid, .mission-cards, .funds-items, .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fund-item, .reward-card, .team-member {
+                margin-bottom: 20px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .rewards-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .tab {
+                width: 100%;
+                border-radius: 5px;
+            }
+            
+            .accordion-header {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .timeline::after {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::after {
+                left: 7px;
+                width: 20px;
+                height: 20px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* スマートフォン（標準）〜タブレット（小） */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .team-grid, .mission-cards, .funds-items, .rewards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* タブレット（標準）〜デスクトップ（小） */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .team-grid, .mission-cards, .funds-items, .rewards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                gap: 30px;
+            }
+        }
+        
+        /* デスクトップ（大） */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .hero-content {
+                max-width: 900px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">新宿<span>Givers</span></a>
+            <a href="#rewards" class="header-cta header-cta-desktop">今すぐ応援する</a>
+            <div class="mobile-menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#about">プロジェクト概要</a></li>
+                    <li><a href="#team">チームメンバー</a></li>
+                    <li><a href="#mission">目指すもの</a></li>
+                    <li><a href="#funds">応援金の使途</a></li>
+                    <li><a href="#rewards">リターン</a></li>
+                    <li><a href="#schedule">スケジュール</a></li>
+                    <li><a href="#social">SNS</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                    <li><a href="#rewards" class="header-cta-mobile">今すぐ応援する</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>まだ無名。</h1>
+            <h2>この一歩が未来を変える。</h2>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>¥0</h3>
+                    <p>現在の支援総額</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0%</h3>
+                    <p>達成率</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0</h3>
+                    <p>支援者数</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30</h3>
+                    <p>残り日数</p>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            
+            <p>目標金額：¥10,000,000 / 最低達成金額：¥1,000,000</p>
+            <p>プロジェクト期間：2025年4月10日〜5月10日</p>
+            
+            <a href="#rewards" class="cta-button">今すぐ応援する</a>
+        </div>
+    </section>
+    
+    <!-- プロジェクト概要 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>プロジェクト概要</h2>
+                <p>「知らないけど、ほっとけなかった」- 新宿Giversの挑戦</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>新宿から始まる、新たな挑戦</h3>
+                    <p>私たち「新宿Givers」は、2025年5月15日の初大会出場を目指して結成された3×3バスケットボールチームです。元大学生プレイヤーや社会人リーグ経験者など、それぞれのバックグラウンドを持つ選手たちが、新宿という街を拠点に新たな挑戦を始めます。</p>
+                    <p>「Givers」というチーム名には「バスケットボールを通じて地域に貢献し、感動を与える」という想いを込めています。単に試合に勝つだけでなく、バスケットボールの魅力を多くの人に伝え、新宿の新たなスポーツカルチャーを創造することが私たちの使命です。</p>
+                    <p>あなたの応援が、私たちの挑戦を後押しします。共に新たな歴史を創りましょう。</p>
+                </div>
+                <div class="about-video">
+                    <img src="/api/placeholder/600/338" alt="新宿Giversの挑戦" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 私たちが目指すもの -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>私たちが目指すもの</h2>
+                <p>「この挑戦の先にある景色を、一緒に見たい」</p>
+            </div>
+            
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="mission-icon">🏀</div>
+                    <h3>地域密着型の活動</h3>
+                    <p>新宿区内の子どもたちにバスケットボール教室を定期開催し、スポーツの楽しさを伝えます。</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">🌟</div>
+                    <h3>3×3バスケの普及</h3>
+                    <p>誰でも参加できる3×3大会を年2回開催し、新たなコミュニティ形成に貢献します。</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">🤝</div>
+                    <h3>社会貢献活動</h3>
+                    <p>チームの収益の一部を新宿区内のスポーツ施設整備や子どもたちの運動環境向上のために寄付します。</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">🏆</div>
+                    <h3>競技での活躍</h3>
+                    <p>2026年の全日本3×3選手権大会出場、そして将来的には国際大会での活躍を目指します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 応援金の使途 -->
+    <section class="funds" id="funds">
+        <div class="container">
+            <div class="section-title">
+                <h2>応援金の使途</h2>
+                <p>「あなたの応援が、バスケの未来を創る」</p>
+            </div>
+            
+            <div class="funds-chart">
+                <img src="/api/placeholder/600/400" alt="資金使途グラフ" width="100%">
+            </div>
+            
+            <div class="funds-items">
+                <div class="fund-item">
+                    <h3>チーム運営費 <span class="fund-amount">300万円</span></h3>
+                    <ul>
+                        <li>チーム登録費</li>
+                        <li>事務局運営費</li>
+                        <li>広報活動費</li>
+                    </ul>
+                </div>
+                
+                <div class="fund-item">
+                    <h3>練習環境整備費 <span class="fund-amount">250万円</span></h3>
+                    <ul>
+                        <li>練習場所確保（年間レンタル費）</li>
+                        <li>練習用具・機材購入</li>
+                        <li>トレーニング機器</li>
+                    </ul>
+                </div>
+                
+                <div class="fund-item">
+                    <h3>大会参加費 <span class="fund-amount">150万円</span></h3>
+                    <ul>
+                        <li>エントリー費</li>
+                        <li>移動・宿泊費</li>
+                        <li>保険料</li>
+                    </ul>
+                </div>
+                
+                <div class="fund-item">
+                    <h3>ユニフォーム・グッズ制作費 <span class="fund-amount">100万円</span></h3>
+                    <ul>
+                        <li>試合用ユニフォーム</li>
+                        <li>練習着</li>
+                        <li>ファングッズ制作</li>
+                    </ul>
+                </div>
+                
+                <div class="fund-item">
+                    <h3>バスケットボール教室運営費 <span class="fund-amount">150万円</span></h3>
+                    <ul>
+                        <li>会場費</li>
+                        <li>運営スタッフ謝礼</li>
+                        <li>子ども向け用具購入</li>
+                    </ul>
+                </div>
+                
+                <div class="fund-item">
+                    <h3>地域貢献活動費 <span class="fund-amount">50万円</span></h3>
+                    <ul>
+                        <li>イベント開催費</li>
+                        <li>ボランティア活動費</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p>※最低達成金額（100万円）の場合は、チーム運営費とユニフォーム制作費を優先的に使用します。</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- リターン -->
+    <section class="rewards" id="rewards">
+        <div class="container">
+            <div class="section-title">
+                <h2>リターン（支援特典）</h2>
+                <p>「"頑張ってる"の一言に、弱いんだ」</p>
+            </div>
+            
+            <div class="rewards-tabs">
+                <button class="tab active">個人向け</button>
+                <button class="tab">企業向け</button>
+            </div>
+            
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥3,000</div>
+                        <div class="reward-title">応援コース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>お礼メール</li>
+                            <li>活動報告の定期配信</li>
+                            <li>新宿Giversオリジナルデジタル壁紙</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥5,000</div>
+                        <div class="reward-title">サポートコース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>オリジナルステッカー</li>
+                            <li>限定SNS投稿でのお名前掲載</li>
+                            <li>応援コース特典すべて</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥10,000</div>
+                        <div class="reward-title">ファンコース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>新宿Giversオリジナルグッズ（Tシャツ）</li>
+                            <li>メンバー全員からのお礼メッセージ動画</li>
+                            <li>サポートコース特典すべて</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥30,000</div>
+                        <div class="reward-title">プレミアムコース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>練習見学権（1回）</li>
+                            <li>サイン入りチームポスター</li>
+                            <li>ファンコース特典すべて</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥50,000</div>
+                        <div class="reward-title">スペシャルコース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>練習参加権（1回）</li>
+                            <li>メンバーとの食事会招待</li>
+                            <li>試合招待（VIP席）</li>
+                            <li>プレミアムコース特典すべて</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-header">
+                        <div class="reward-price">¥100,000</div>
+                        <div class="reward-title">VIPコース</div>
+                    </div>
+                    <div class="reward-content">
+                        <ul>
+                            <li>「新宿Giversサポーター」として公式サイトに名前掲載</li>
+                            <li>年間試合招待（VIP席）</li>
+                            <li>サイン入りユニフォーム</li>
+                            <li>スペシャルコース特典すべて</li>
+                        </ul>
+                        <button class="reward-button">このコースで応援する</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 活動スケジュール -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>活動スケジュール</h2>
+                <p>「この挑戦が、次の一歩を生む」</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年5月</div>
+                        <h3>チーム始動・初練習</h3>
+                        <p>正式にチームが発足し、初の合同練習を実施します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年6月</div>
+                        <h3>地域初お披露目イベント</h3>
+                        <p>新宿区内でのチーム紹介イベントを開催します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年7月</div>
+                        <h3>初の公式戦参加</h3>
+                        <p>チームとして初めての公式戦に出場します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年9月</div>
+                        <h3>第1回バスケットボール教室開催</h3>
+                        <p>地域の子どもたち向けにバスケットボール教室を開催します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年11月</div>
+                        <h3>新宿区主催3×3大会参加</h3>
+                        <p>地元新宿区で開催される3×3大会に参加します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年1月</div>
+                        <h3>新春地域交流イベント</h3>
+                        <p>新年を祝う地域交流イベントを開催します。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年3月</div>
+                        <h3>全日本3×3選手権予選参加</h3>
+                        <p>全国大会の予選に初挑戦します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SNSで応援する -->
+    <section class="social" id="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>SNSで応援する</h2>
+                <p>「あなたの拡散が、新たな風を呼ぶ」</p>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon">
+                    <span>In</span>
+                </a>
+                <a href="#" class="social-icon">
+                    <span>X</span>
+                </a>
+                <a href="#" class="social-icon">
+                    <span>Tt</span>
+                </a>
+            </div>
+            
+            <p>公式アカウントをフォローして最新情報をチェック！</p>
+            <p>@shinjuku_givers</p>
+            
+            <div class="hashtags">
+                <span class="hashtag">#新宿Givers</span>
+                <span class="hashtag">#3x3バスケ</span>
+                <span class="hashtag">#新宿バスケ</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- よくある質問 -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>よくある質問</h2>
+                <p>「もっと知りたい、あなたのために」</p>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">クラウドファンディングの目標金額に達しなかった場合はどうなりますか？</div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            最低達成金額（100万円）に到達した場合はプロジェクトを実行します。到達しなかった場合は全額返金となります。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">3×3バスケットボールとは何ですか？</div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            3人対3人で行うバスケットボールで、一つのゴールを使い、10分間または21点先取で勝敗を決めます。東京オリンピックから正式種目となった比較的新しい競技です。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">リターン品はいつ届きますか？</div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            クラウドファンディング終了後、約2ヶ月以内にお届けします。詳細は支援後にメールでご連絡します。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">支援後も活動をフォローすることはできますか？</div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            公式SNSや月1回の活動報告メールで、チームの最新情報をお届けします。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">企業として応援するメリットは何ですか？</div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            新宿という若者が集まるエリアでのブランド露出、スポーツを通じたCSR活動のアピール、健全な地域活動への貢献など多くのメリットがあります。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- お問い合わせ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>お問い合わせ</h2>
+                <p>「あなたの声を、聞かせてください」</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <h3>担当者</h3>
+                        <p>田中隆太（代表）</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h3>メール</h3>
+                        <p>info@shinjuku-givers.com</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <h3>電話</h3>
+                        <p>03-XXXX-XXXX（平日10:00〜18:00）</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" placeholder="お名前を入力してください">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" placeholder="メールアドレスを入力してください">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">メッセージ</label>
+                        <textarea id="message" placeholder="メッセージを入力してください"></textarea>
+                    </div>
+                    
+                    <button class="submit-button">送信する</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">新宿<span>Givers</span></a>
+                    <p>新宿から世界へ。3×3バスケの新たな風を起こす。</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>リンク</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">プロジェクト概要</a></li>
+                        <li><a href="#team">チームメンバー</a></li>
+                        <li><a href="#mission">私たちが目指すもの</a></li>
+                        <li><a href="#funds">応援金の使途</a></li>
+                        <li><a href="#rewards">リターン（支援特典）</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>リンク</h3>
+                    <ul class="footer-links">
+                        <li><a href="#schedule">活動スケジュール</a></li>
+                        <li><a href="#social">SNSで応援する</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>お問い合わせ</h3>
+                    <p>info@shinjuku-givers.com</p>
+                    <p>03-XXXX-XXXX</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>プライバシーポリシー | 特定商取引法に基づく表記</p>
+                <p>© 2025 新宿Givers All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // プログレスバーのアニメーション
+        setTimeout(() => {
+            document.querySelector('.progress').style.width = "0%";
+        }, 500);
+        
+        // FAQ アコーディオン
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const inner = content.querySelector('.accordion-content-inner');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = inner.scrollHeight + "px";
+                }
+                
+                header.classList.toggle('active');
+            });
+        });
+        
+        // タブ切り替え
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        // モバイルメニュー
+        const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        
+        mobileMenuIcon.addEventListener('click', () => {
+            mobileMenuIcon.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            // ボディのスクロールを防止/許可
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // メニューリンククリック時にメニューを閉じる
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuIcon.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // ウィンドウサイズ変更時の対応
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                mobileMenuIcon.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // タッチデバイスでのホバー対応
+        if ('ontouchstart' in window || navigator.maxTouchPoints) {
+            document.documentElement.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html></section>
+    
+    <!-- チームメンバー -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>チームメンバー</h2>
+                <p>「誰かのスタートを、誰よりも早く支えたい」</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>田中隆太</h3>
+                        <h4>PG | 25歳 | 178cm</h4>
+                        <p>元大学バスケ部主将。3ポイントシュートの名手。チームの司令塔として活躍。</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>佐藤健太</h3>
+                        <h4>SG | 27歳 | 185cm</h4>
+                        <p>社会人リーグMVP経験者。オールラウンドプレイヤーとして攻守に活躍。</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>鈴木拓也</h3>
+                        <h4>SF | 24歳 | 190cm</h4>
+                        <p>元高校全国大会出場。ダンクシュートが得意。パワフルなプレースタイル。</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>渡辺大輔</h3>
+                        <h4>PF | 26歳 | 192cm</h4>
+                        <p>元実業団チーム所属。リバウンドの達人。フィジカルの強さが武器。</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>中村健司</h3>
+                        <h4>C | 23歳 | 195cm</h4>
+                        <p>大学時代ディフェンスの要。ブロックショットが武器。チームの守護神。</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('/api/placeholder/400/400')"></div>
+                    <div class="member-info">
+                        <h3>兼子誠</h3>
+                        <h4>監督 | 42歳</h4>
+                        <p>元日本代表候補。3×3バスケットボール専門のコーチとして活動。戦術眼に定評がある。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
